@@ -1,0 +1,52 @@
+;BIC; BLOS; MUL; BPL;SCC
+A: .WORD 001637
+B: .WORD 001617
+START:   MOV A,R1;
+	 MOV B,R2; 
+	 BIC R1,R1 ; MOVES 000000 TO R2; SETS Z AND N FLAG TO 0 FLAG
+	 BPL LOOP1 ;WILL GO TO LOOP1 AS N IS 0
+	 SUB R1,R2
+LOOP1: SCC ; SETS ALL CONDITIONS CODS TO 1
+	    BLOS LOOP2
+	MUL R1, R2;
+LOOP2 : HALT ; 	program wont halt if it doesnt follow the flow, also it will generate error for MUL instruction if it is not branching
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 ADD R1,R2 ;
+	 CMP A,B ; compare R1 and R2
+	 BNE LOOP ;WILL GO EXECUTE INSTRUCTIONS UNDER LOOP
+	 MOV #52,R1 
+	 MOV #100,R2
+LOOP:	CLR R1
+	 CLR R2
+	 
+	 CMP R1,R2
+	 BEQ STOP ; WILL HALT THE PROGRAM
+STOP:	 HALT; ; if the program doesnt follow branch instructions it would never halt

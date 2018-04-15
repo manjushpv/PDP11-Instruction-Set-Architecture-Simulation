@@ -1,0 +1,15 @@
+       1                                 ; for autodecrement
+       2 000000 017751                  B: .WORD 017751
+       3 000002 016700  177772          START:   MOV B,R0; // should set N flag as  source is <0
+immediate.mac:4: ***ERROR Invalid expression
+immediate.mac:4: ***ERROR Invalid expression
+       4 000006 000000  000000  000002  	 // R2 after this instr will have value 17750
+         000014 000000G 000000G 000000G 
+         000022 000000G 000000G 000000G 
+         000030 017750                  
+       5 000032 012737  000020  017750  	 MOV #20,@#17750 ;
+       6 000040 012737  000052  002017  	 MOV #52,@#002017
+       7 000046 012737  002017  001774  	 MOV #002017,@#17748;
+       8 000054 062740  000020          	 ADD #20,-(R0);	  40 at memory location 17750
+       9 000060 062750  000020          	 ADD #20,@-(R0) ;20+25 = 45 @002017 
+       9 000064 000000                  	 HALT;

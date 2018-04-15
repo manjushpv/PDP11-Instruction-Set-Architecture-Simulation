@@ -1,0 +1,10 @@
+ ; for autodecrement
+B: .WORD 017751
+START:   MOV B,R0; // should set N flag as  source is <0
+	 // R2 after this instr will have value 17750
+	 MOV #20,@#17750 ;
+	 MOV #52,@#002017
+	 MOV #002017,@#17748;
+	 ADD #20,-(R0);	  40 at memory location 17750
+	 ADD #20,@-(R0) ;20+25(1scomplement of 52) = 45 @002017 
+	 HALT;

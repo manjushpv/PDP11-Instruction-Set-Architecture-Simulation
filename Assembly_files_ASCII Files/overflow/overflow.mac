@@ -1,0 +1,6 @@
+A: .WORD 177777
+B: .WORD 100001
+START:   MOV A,R1;
+	 MOV B,R2; 
+	 ADD R1,R2 ; will set the V-overflow flag(NCVZ =0011 )
+	 HALT;

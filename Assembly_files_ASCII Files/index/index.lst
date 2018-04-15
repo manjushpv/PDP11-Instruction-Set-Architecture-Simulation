@@ -1,0 +1,11 @@
+       1                                ; for autodecrement
+       2 000000 017000                  B: .WORD 017000
+       3 000002 016700  177772          START:   MOV B,R0;  should set N flag as  source is <0
+       4                                	 ; R2 after this instr will have value 17750
+       5 000006 012737  000052  017200  	 MOV #52,@#017200
+       6 000014 012737  000100  000052  	 MOV #100, @#000052
+       7 000022 012737  000001  000100  	 MOV #01,@#000100
+       8 000030 006060  000200          	 ROR 200(R0) ; changes content at 017200 
+       9 000034 006170  000200          	 ROL @200(R0)
+      10                                	  
+      10 000040 000000                  	 HALT;
